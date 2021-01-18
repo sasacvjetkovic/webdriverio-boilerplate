@@ -1,7 +1,7 @@
 const waitforTimeout = 30 * 60000;
 const commandTimeout = 30 * 60000;
-const allure = require('@wdio/allure-reporter').default;
-
+//const allure = require('@wdio/allure-reporter').default;
+const allure = require ('allure-commandline');
 
 exports.config = {
     //
@@ -127,6 +127,9 @@ exports.config = {
     // Test reporter for stdout.
     // The only one supported by default is 'dot'
     // see also: https://webdriver.io/docs/dot-reporter.html
+    
+
+    // Allure Reported details: https://webdriver.io/docs/allure-reporter.html
     reporters: [
         'spec',
         ['allure', {
@@ -136,7 +139,7 @@ exports.config = {
             disableWebdriverScreenshotsReporting: false,
         }]
     ],
-
+/* 
     beforeSuite: function (suite) {
         global.allure = allure;
         allure.addFeature(suite.name);
@@ -149,7 +152,7 @@ exports.config = {
         allure.addDescription("generating Allure reports" + test.title);
         allure.addTestId("TC-001" + test.title);
         allure.addLabel("label" + + today.toISOString().replace(/[^\w]/g, "") + ".png");
-    },
+    }, */
     //
     // If you are using Cucumber you need to specify the location of your step definitions.
     cucumberOpts: {
@@ -302,15 +305,17 @@ exports.config = {
      * @param {Array.<Object>} capabilities list of capabilities details
      * @param {<Object>} results object containing test results
      */
-    /*     onComplete: function (exitCode, config, capabilities, results) {
+        onComplete: function (exitCode, config, capabilities, results) {
             const reportError = new Error('Could not generate Allure report')
-            const generation = allure(['generate', 'allure-results', '--clean'])
+            const generation = allure(['generate', 'report/allure-results', '--clean'])
+            const openReport = allure(['serve', 'report/allure-results'])
+
             return new Promise((resolve, reject) => {
                 const generationTimeout = setTimeout(
                     () => reject(reportError),
                     5000)
     
-                generation.on('exit', function (exitCode1) {
+                    openReport.on('exit', function (exitCode1) {
                     clearTimeout(generationTimeout)
     
                     if (exitCode1 !== 0) {
@@ -321,7 +326,7 @@ exports.config = {
                     resolve()
                 })
             })
-        }, */
+        }, 
     /**
     * Gets executed when a refresh happens.
     * @param {String} oldSessionId session ID of the old session

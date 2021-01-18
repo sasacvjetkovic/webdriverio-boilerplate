@@ -8,22 +8,17 @@
     "ios_tag": "wdio ./config/wdio.conf.ios.js --cucumberOpts.tagExpression=\"$TAG\"",
     "ios_optional": "wdio ./config/wdio.conf.ios.js --cucumberOpts.tagExpression=${TAG=@login}",
     "ios2": "wdio ./config/wdio.conf.ios.js --cucumberOpts.tagExpression=",
-    "ios_browserstack": "wdio ./config/wdio.conf.ios.browserstack.js",
     "ios_saucelabs": "wdio ./config/wdio.conf.ios.saucelabs.js --cucumberOpts.tagExpression=\"$TAG\"",
-    "test": "wdio ./config/test.js",
+    "e2e-custom": "npm run $SCRIPT -- --cucumberOpts.tagExpression=\"$TAG\"",
     "allure-report": "allure generate report/allure-results --clean && allure open",
     "report:history": "mkdir -p report/allure-report/history allure-results/history && cp -a report/allure-report/history report/allure-results/",
     "allure": "allure serve report/allure-results",
     "report.ci": "allure generate report/allure-results --clean -o allure-report"
   },
-
-
   "author": "Sasa Cvjetkovic",
   "license": "ISC",
   "devDependencies": {
-    "@types/chai": "^4.2.14",
     "@types/cucumber": "^6.0.1",
-    "@types/jquery": "^3.5.5",
     "@types/node": "^14.14.14",
     "@types/webdriverio": "^5.0.0",
     "@wdio/allure-reporter": "^6.11.0",
@@ -37,12 +32,9 @@
     "allure-commandline": "^2.13.8",
     "appium": "^1.20.0-beta.0",
     "appium-webdriveragent": "^2.32.2",
-    "chai": "^4.2.0",
-    "chromedriver": "^87.0.4",
     "cucumber": "^7.0.0-rc.0",
     "react-native": "^0.63.4",
     "typescript": "^4.1.3",
-    "wdio-chromedriver-service": "^6.0.4",
     "webdriverio": "^6.12.0"
   },
   "dependencies": {

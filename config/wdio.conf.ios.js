@@ -4,6 +4,7 @@ const { config } = require("./wdio.shared.conf");
 // ============
 // Specs
 // ============
+
 exports.config = {
   ...config,
   ...{
