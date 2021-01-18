@@ -13,10 +13,6 @@ const currentTime = new Date().toJSON().replace(/:/g, "-");
 const parallelExecutionReportDirectory = `./report/cucumber-parallel`;
 const sourceSpecDirectory = `./test/features`;
 
-//TODO test parallelization on separate features - uz custom code? (featuresplitter fajl u modulu )
-//TODO check how to pass tags to CLI - other than shell script?
-//TODO saucelabs job = scenario name? - Name of a file after splitting each scenario into its own separate file, OR try using SL API in after hooks
-
 let featureFilePath = `${sourceSpecDirectory}/*.feature`;
 
 // If parallel execution is set to true, then create the Split the feature files
@@ -56,11 +52,6 @@ exports.config = {
     region: "eu",
     //config.sauceConnect = true;
 
-    // ============
-    // Capabilities
-    // ============
-    // For all capabilities please check
-    // http://appium.io/docs/en/writing-running-appium/caps/#general-capabilities
     capabilities: [
       {
         maxInstances: 2,

@@ -13,14 +13,7 @@ const currentTime = new Date().toJSON().replace(/:/g, "-");
 const parallelExecutionReportDirectory = `./report/cucumber-parallel`;
 const sourceSpecDirectory = `./test/features`;
 
-//TODO test parallelization on separate features - uz custom code? (featuresplitter fajl u modulu )
-//TODO check how to pass tags to CLI - other than shell script?
-//TODO saucelabs job = scenario name? - Name of a file after splitting each scenario into its own separate file, OR try using SL API in after hooks
-
 let featureFilePath = `${sourceSpecDirectory}/*.feature`;
-
-// If parallel execution is set to true, then create the Split the feature files
-// And store then in a tmp spec directory (created inside `the source spec directory)
 
 if (argv.parallel === "true") {
   tmpSpecDirectory = `${sourceSpecDirectory}/tmp`;
@@ -39,7 +32,7 @@ const SAUCELABS_APP_IOS = "storage:328e693f-5b75-43e4-9e59-c3724cce2fec";
 // .ipa
 //const SAUCELABS_APP_IOS = "storage:8d26e283-020c-4b2d-b22c-e21bfeb7a394";
 const SAUCELABS_APP_IOS_SIMULATOR =
-  "storage:4b8ac985-fd96-409a-afc2-ab4c21c679ae";
+  "storage:797e2131-8dc4-4fd9-8802-3fe776200d5a";
 
 // .apk debug
 const SAUCELABS_APP_ANDROID = "storage:60ff9061-5973-4c81-8388-14366d002636";
@@ -51,19 +44,14 @@ exports.config = {
 
     services: ["sauce"],
 
-    user: "njeremicsauce",
-    key: "2ea8a42f-6a5d-4085-b17c-cd71ff50e806",
+    user: "nemanjaparsablex",
+    key: "62761e24-800e-4fb9-874b-f29696127daf",
     region: "eu",
     //config.sauceConnect = true;
 
-    // ============
-    // Capabilities
-    // ============
-    // For all capabilities please check
-    // http://appium.io/docs/en/writing-running-appium/caps/#general-capabilities
     capabilities: [
       {
-        maxInstances: 2,
+        maxInstances: 1,
         platformName: "iOS",
         app: SAUCELABS_APP_IOS_SIMULATOR,
         automationName: "XCUITest",
@@ -148,7 +136,7 @@ exports.config = {
         var options = {
           theme: "hierarchy",
           jsonFile: jsonFile,
-          output: `reports/html/report-${currentTime}.html`,
+          output: `report/html/report-${currentTime}.html`,
           reportSuiteAsScenarios: true,
           scenarioTimestamp: true,
           launchReport: true,
