@@ -8,10 +8,7 @@
     "android_saucelabs": "wdio ./config/wdio.conf.android.saucelabs.js",
     "ios_saucelabs": "wdio ./config/wdio.conf.ios.saucelabs.js",
     "e2e-custom": "npm run $SCRIPT -- --cucumberOpts.tagExpression=\"$TAG\"",
-    "allure-report": "allure generate report/allure-results --clean && allure open",
-    "report:history": "mkdir -p report/allure-report/history allure-results/history && cp -a report/allure-report/history report/allure-results/",
-    "allure": "allure serve report/allure-results",
-    "report.ci": "allure generate report/allure-results --clean -o allure-report"
+    "allure-report": "allure generate report/allure-results --clean && allure open"
   },
   "author": "Sasa Cvjetkovic",
   "license": "ISC",
