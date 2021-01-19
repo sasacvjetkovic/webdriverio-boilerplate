@@ -1,8 +1,5 @@
 const waitforTimeout = 30 * 60000;
 const commandTimeout = 30 * 60000;
-//const allure = require('@wdio/allure-reporter').default;
-const allure = require("allure-commandline");
-const fs_extra = require("fs-extra");
 
 exports.config = {
   //
@@ -82,7 +79,7 @@ exports.config = {
   //baseUrl: 'http://localhost',
   //
   // Default timeout for all waitFor* commands.
-  waitforTimeout: 10000,
+  waitforTimeout: 30000,
   //
   // Default timeout in milliseconds for request
   // if browser driver or grid doesn't send response
@@ -318,27 +315,8 @@ exports.config = {
    * @param {Array.<Object>} capabilities list of capabilities details
    * @param {<Object>} results object containing test results
    */
-  onComplete: () => {
-    //related to allure
-    const reportError = new Error("Could not generate Allure report");
-    const generation = allure(["generate", "report/allure-results", "--clean"]);
-    const openReport = allure(["serve", "report/allure-results"]);
-
-    return new Promise((resolve, reject) => {
-      const generationTimeout = setTimeout(() => reject(reportError), 5000);
-
-      openReport.on("exit", function (exitCode1) {
-        clearTimeout(generationTimeout);
-
-        if (exitCode1 !== 0) {
-          return reject(reportError);
-        }
-
-        console.log("Allure report successfully generated");
-        resolve();
-      });
-    });
-  },
+  // onComplete: () => {
+  // },
   /**
    * Gets executed when a refresh happens.
    * @param {String} oldSessionId session ID of the old session

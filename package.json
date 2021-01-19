@@ -5,12 +5,8 @@
   "scripts": {
     "android": "wdio ./config/wdio.conf.android.js",
     "ios": "wdio ./config/wdio.conf.ios.js",
-    "ios_tag": "wdio ./config/wdio.conf.ios.js --cucumberOpts.tagExpression=\"$TAG\"",
-    "ios_optional": "wdio ./config/wdio.conf.ios.js --cucumberOpts.tagExpression=${TAG=@login}",
-    "ios2": "wdio ./config/wdio.conf.ios.js --cucumberOpts.tagExpression=",
-    "ios_saucelabs": "wdio ./config/wdio.conf.ios.saucelabs.js --cucumberOpts.tagExpression=\"$TAG\"",
-    "ios_saucelabs_parallel": "wdio ./config/wdio.conf.ios.saucelabs.js --parallel=true",
-    "android_saucelabs_parallel": "wdio ./config/wdio.conf.android.saucelabs.js --parallel=true",
+    "android_saucelabs": "wdio ./config/wdio.conf.android.saucelabs.js --parallel=true",
+    "ios_saucelabs": "wdio ./config/wdio.conf.ios.saucelabs.js --parallel=true",
     "e2e-custom": "npm run $SCRIPT -- --cucumberOpts.tagExpression=\"$TAG\"",
     "allure-report": "allure generate report/allure-results --clean && allure open",
     "report:history": "mkdir -p report/allure-report/history allure-results/history && cp -a report/allure-report/history report/allure-results/",
@@ -35,12 +31,13 @@
     "appium": "^1.20.0-beta.0",
     "appium-webdriveragent": "^2.32.2",
     "cucumber": "^7.0.0-rc.0",
+    "cucumber-html-reporter": "^5.3.0",
+    "dotenv": "^8.2.0",
     "react-native": "^0.63.4",
     "typescript": "^4.1.3",
     "wdio-cucumber-parallel-execution": "^3.6.14",
-    "webdriverio": "^6.12.0",
     "wdio-cucumberjs-json-reporter": "^2.0.2",
-    "cucumber-html-reporter": "^5.3.0"
+    "webdriverio": "^6.12.0"
   },
   "dependencies": {
     "carthage": "^1.0.6",

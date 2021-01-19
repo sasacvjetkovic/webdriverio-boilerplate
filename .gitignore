@@ -1,3 +1,5 @@
 node_modules
 report
 allure-report
+.env
+test/features/tmp/*
