@@ -14,6 +14,7 @@ Feature: Login screen
     Given user Bob is on login page
     When he logs in with valid credentials
     Then alert for successful login is shown
+    And I will use shared data
 
   Scenario: Login with invalid credentials
     Given user Bob is on login page
