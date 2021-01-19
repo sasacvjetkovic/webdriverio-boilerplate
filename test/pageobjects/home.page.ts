@@ -3,8 +3,8 @@ import Page from './page';
 
 class HomePage extends Page {
   /*** Android ***/
-  static readonly aHomePageLabel = '~Home-screen';
-    //'//android.widget.ScrollView[@content-desc="Home-screen"]/android.view.ViewGroup/android.view.ViewGroup[1]/android.widget.TextView[3]';
+  static readonly aHomePageLabel = 
+  '//android.widget.ScrollView[@content-desc="Home-screen"]/android.view.ViewGroup/android.view.ViewGroup[1]/android.widget.TextView';
   /*** iOS ***/
   static readonly iHomePageLabel = '~Demo app for the appium-boilerplate';
 
