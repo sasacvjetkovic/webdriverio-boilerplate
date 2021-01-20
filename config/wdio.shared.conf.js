@@ -11,6 +11,7 @@ exports.config = {
   // WebdriverIO allows it to run your tests in arbitrary locations (e.g. locally or
   // on a remote machine).
   runner: "local",
+  specs: ["./test/features/**/*.feature"],
   //
   // ==================
   // Specify Test Files
@@ -130,13 +131,6 @@ exports.config = {
   // Allure Reported details: https://webdriver.io/docs/allure-reporter.html
   reporters: [
     "spec",
-    [
-      "cucumberjs-json",
-      {
-        jsonFolder: "./report/cucumber-parallel",
-        language: "en",
-      },
-    ],
     [
       "allure",
       {

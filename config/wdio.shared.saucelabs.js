@@ -1,22 +1,17 @@
-const { config } = require("./wdio.shared.conf");
 require("dotenv").config();
+const { config } = require("./wdio.shared.conf");
 const fs_extra = require("fs-extra");
-
-//const argv = require("yargs").argv;
+const axios = require("axios");
 const wdioParallel = require("wdio-cucumber-parallel-execution");
-//get current time for naming tests
-//const currentTime = new Date().toJSON().replace(/:/g, "-");
-// const parallelExecutionReportDirectory = './report/cucumber-parallel';
-const sourceSpecDirectory = './test/features';
+
+const sourceSpecDirectory = "./test/features";
 let featureFilePath = `${sourceSpecDirectory}/*.feature`;
-let tmpSpecDirectory = './test/tmp_features';
+let tmpSpecDirectory = "./test/tmp_features";
 featureFilePath = `${tmpSpecDirectory}/*.feature`;
 wdioParallel.performSetup({
   sourceSpecDirectory: sourceSpecDirectory,
   tmpSpecDirectory: tmpSpecDirectory,
   cleanTmpSpecDirectory: true,
-  //if you want login file to be split
-  //ff: "test",
 });
 
 exports.config = {
@@ -34,6 +29,46 @@ exports.config = {
     key: process.env.SAUCE_KEY,
     region: process.env.SAUCE_REGION,
     //config.sauceConnect = true;
+
+    beforeScenario: (
+      uri,
+      feature,
+      scenario,
+      result,
+      sourceLocation,
+      context
+    ) => {
+      // Call to SauceLabs' REST API to change Job name
+      let sauceJobName = scenario.name;
+      let sauceJobId = browser.sessionId;
+      let dataObject = { name: `${sauceJobName}` };
+
+      let headers = {
+        "Content-type": "application/json",
+      };
+
+      let sauce_url = "saucelabs.com";
+
+      if (process.env.SAUCE_REGION === "eu") {
+        sauce_url = "eu-central-1.saucelabs.com";
+      }
+      axios({
+        method: "put",
+        url: `https://${sauce_url}/rest/v1/${process.env.SAUCE_USER}/jobs/${sauceJobId}`,
+        data: dataObject,
+        headers: headers,
+        auth: {
+          username: `${process.env.SAUCE_USER}`,
+          password: `${process.env.SAUCE_KEY}`,
+        },
+      })
+        .then(function (response) {
+          console.log(response);
+        })
+        .catch(function (error) {
+          console.log(error);
+        });
+    },
 
     onComplete: () => {
       fs_extra.removeSync(tmpSpecDirectory);

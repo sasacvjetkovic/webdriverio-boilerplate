@@ -1,20 +1,8 @@
-const { join } = require("path");
 const { config } = require("./wdio.shared.conf");
-
-// ============
-// Specs
-// ============
 
 exports.config = {
   ...config,
   ...{
-    specs: ["./test/features/**/*.feature"],
-
-    // ============
-    // Capabilities
-    // ============
-    // For all capabilities please check
-    // http://appium.io/docs/en/writing-running-appium/caps/#general-capabilities
     capabilities: [
       {
         maxInstances: 1,
