@@ -1,13 +1,13 @@
 const { config } = require("./wdio.shared.saucelabs");
 
-const SAUCELABS_APP_ANDROID = "storage:1d68aad5-15f8-4e7e-8ee6-41b85f268064";
+const SAUCELABS_APP_ANDROID = "storage:950d28f3-3251-4a70-8b9f-f15d172f4dce";
 
 exports.config = {
   ...config,
   ...{
     capabilities: [
       {
-        maxInstances: 2,
+        maxInstances: 5,
         platformName: "Android",
         platformVersion: "10",
         deviceName: "Google Pixel 3a GoogleAPI Emulator",

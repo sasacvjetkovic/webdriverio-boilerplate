@@ -13,7 +13,6 @@ exports.config = {
         deviceName: "iPhone 11",
         app: "./apps/iOS-Simulator-NativeDemoApp-0.2.1.app",
         automationName: "XCUITest",
-        newCommandTimeout: 30 * 60000,
         fullReset: false,
         noReset: true,
       },

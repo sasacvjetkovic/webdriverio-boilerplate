@@ -1,14 +1,14 @@
 const { config } = require("./wdio.shared.saucelabs");
 
 const SAUCELABS_APP_IOS_SIMULATOR =
-  "storage:0d32286e-65ac-4068-90da-25d31a613838";
+  "storage:53b9a9dd-3142-4ca6-9b50-6218233e6334";
 
 exports.config = {
   ...config,
   ...{
     capabilities: [
       {
-        maxInstances: 2,
+        maxInstances: 5,
         platformName: "iOS",
         platformVersion: "14.0",
         deviceName: "iPhone 8 Simulator",
