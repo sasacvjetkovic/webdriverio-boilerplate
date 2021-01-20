@@ -2,4 +2,5 @@ node_modules
 report
 allure-report
 .env
-test/features/tmp
+test/tmp_features
+.vscode/launch.json

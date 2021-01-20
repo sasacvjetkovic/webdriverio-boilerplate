@@ -28,14 +28,11 @@ exports.config = {
         app: "./apps/app-debug.apk",
       },
     ],
-    beforeScenario: () => {
-      console.log("----   Before Android scenario   ----");
-      driver.reloadSession();
-    },
 
-    afterScenario: () => {
-      console.log("----   After Android scenario   ----");
-      driver.reloadSession();
+    beforeScenario: (scenario) => {
+      console.log("----   Before Android scenario   ----");
+      console.log("scenario name: " + scenario.name);
+      driver.reset();
     },
   },
 };

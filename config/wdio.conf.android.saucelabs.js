@@ -1,7 +1,7 @@
 const { config } = require("./wdio.shared.saucelabs");
 
 // .apk debug
-const SAUCELABS_APP_ANDROID = "storage:3c065309-b799-421b-9379-bc678ed2f230";
+const SAUCELABS_APP_ANDROID = "storage:950d28f3-3251-4a70-8b9f-f15d172f4dce";
 
 exports.config = {
   ...config,

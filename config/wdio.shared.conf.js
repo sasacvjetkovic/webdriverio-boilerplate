@@ -1,5 +1,6 @@
-const waitforTimeout = 30 * 60000;
-const commandTimeout = 30 * 60000;
+const waitforTimeout = 10 * 1000;
+const connectionRetryTimeout = 120 * 1000;
+const cucumberStepTimeout = 30 * 1000;
 
 exports.config = {
   //
@@ -79,11 +80,11 @@ exports.config = {
   //baseUrl: 'http://localhost',
   //
   // Default timeout for all waitFor* commands.
-  waitforTimeout: 30000,
+  waitforTimeout: waitforTimeout,
   //
   // Default timeout in milliseconds for request
   // if browser driver or grid doesn't send response
-  connectionRetryTimeout: 120000,
+  connectionRetryTimeout: connectionRetryTimeout,
   //
   // Default request retries count
   connectionRetryCount: 3,
@@ -190,7 +191,7 @@ exports.config = {
     // <string> (expression) only execute the features or scenarios with tags matching the expression
     tagExpression: "",
     // <number> timeout for step definitions
-    timeout: 30000,
+    timeout: cucumberStepTimeout,
     // <boolean> Enable this config to treat undefined definitions as warnings.
     ignoreUndefinedDefinitions: false,
   },
@@ -210,7 +211,6 @@ exports.config = {
    */
   // onPrepare: function (config, capabilities) {
   // },
-
   /**
    * Gets executed before a worker process is spawned and can be used to initialise specific service
    * for that worker as well as modify runtime environments in an async fashion.
@@ -255,9 +255,8 @@ exports.config = {
   /**
    * Runs before a Cucumber scenario
    */
-  /*   beforeScenario: function (uri, feature, scenario, sourceLocation, context) {
-          console.log('----   Before scenario   ----');
-      }, */
+  // beforeScenario: function (uri, feature, scenario, sourceLocation, context) {
+  // },
   /**
    * Runs before a Cucumber step
    */
@@ -271,16 +270,13 @@ exports.config = {
   /**
    * Runs after a Cucumber scenario
    */
-  /*   afterScenario: function (uri, feature, scenario, result, sourceLocation, context) {
-          console.log('----   After scenario   ----');
-          driver.reloadSession();
-      }, */
+  // afterScenario: function (uri, feature, scenario, result, sourceLocation, context) {
+  // }
   /**
    * Runs after a Cucumber feature
    */
   // afterFeature: function (uri, feature, scenarios) {
   // },
-
   /**
    * Runs after a WebdriverIO command gets executed
    * @param {String} commandName hook command name

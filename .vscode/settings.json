@@ -2,5 +2,9 @@
     "cucumberautocomplete.steps": [
         "test/step-definitions/*.ts"
     ],
-    "cucumberautocomplete.strictGherkinCompletion": true
+    "cucumberautocomplete.strictGherkinCompletion": true,
+    "cucumber-quick": {
+		"tool": "webdriverio",
+		"script": "npm run ios"
+	}
 }

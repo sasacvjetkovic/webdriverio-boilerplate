@@ -31,28 +31,8 @@ exports.config = {
       },
     ],
 
-    beforeScenario: (
-      uri,
-      feature,
-      scenario,
-      result,
-      sourceLocation,
-      context
-    ) => {
+    beforeScenario: (scenario) => {
       console.log("----   Before iOS scenario  ----");
-      console.log("scenario name: " + scenario.name);
-      driver.reloadSession();
-    },
-
-    afterScenario: (
-      uri,
-      feature,
-      scenario,
-      result,
-      sourceLocation,
-      context
-    ) => {
-      console.log("----   After iOS scenario   ----");
       console.log("scenario name: " + scenario.name);
       driver.reset();
     },
