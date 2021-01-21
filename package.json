@@ -7,7 +7,8 @@
     "ios": "wdio ./config/wdio.conf.ios.js",
     "android-saucelabs": "wdio ./config/wdio.conf.android.saucelabs.js",
     "ios-saucelabs": "wdio ./config/wdio.conf.ios.saucelabs.js",
-    "e2e-custom": "npm run $SCRIPT -- --cucumberOpts.tagExpression=\"$TAG\"",
+    "e2e-custom": "yarn run $SCRIPT --cucumberOpts.tagExpression=\"$TAG\"",
+    "e2e-custom2": "npm run $npm_config_script -- --cucumberOpts.tagExpression='$npm_config_tags'",
     "allure-report": "allure generate report/allure-results --clean && allure open",
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx"
   },

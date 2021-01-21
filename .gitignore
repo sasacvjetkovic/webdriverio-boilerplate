@@ -4,3 +4,4 @@ allure-report
 .env
 test/tmp_features
 .vscode/launch.json
+package-lock.json
