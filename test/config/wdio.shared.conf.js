@@ -10,8 +10,8 @@ exports.config = {
   //
   // WebdriverIO allows it to run your tests in arbitrary locations (e.g. locally or
   // on a remote machine).
-  runner: "local",
-  specs: ["./test/features/**/*.feature"],
+  runner: 'local',
+  specs: ['./test/features/**/*.feature'],
   //
   // ==================
   // Specify Test Files
@@ -54,7 +54,7 @@ exports.config = {
   // Define all options that are relevant for the WebdriverIO instance here
   //
   // Level of logging verbosity: trace | debug | info | warn | error | silent
-  logLevel: "info",
+  logLevel: 'info',
   //
   // Set specific log levels per logger
   // loggers:
@@ -94,14 +94,14 @@ exports.config = {
   // Services take over a specific job you don't want to take care of. They enhance
   // your test setup with almost no effort. Unlike plugins, they don't add new
   // commands. Instead, they hook themselves up into the test process.
-  services: ["appium"],
+  services: ['appium'],
   appium: {
-    os: "iOS",
-    command: "appium",
+    os: 'iOS',
+    command: 'appium',
     args: {
       logTimestamp: true,
     },
-    logPath: "test-results/appium.log",
+    logPath: 'test-results/appium.log',
   },
   //  host: '0.0.0.0',
   //port: 4723,
@@ -113,7 +113,7 @@ exports.config = {
   //
   // Make sure you have the wdio adapter package for the specific framework installed
   // before running any tests.
-  framework: "cucumber",
+  framework: 'cucumber',
   //
   // The number of times to retry the entire specfile when it fails as a whole
   // specFileRetries: 1,
@@ -130,18 +130,18 @@ exports.config = {
 
   // Allure Reported details: https://webdriver.io/docs/allure-reporter.html
   reporters: [
-    "spec",
+    'spec',
     [
-      "allure",
+      'allure',
       {
-        outputDir: "./report/allure-results",
+        outputDir: './test/report/allure-results',
         useCucumberStepReporter: true,
         disableWebdriverStepsReporting: false,
         disableWebdriverScreenshotsReporting: false,
       },
     ],
   ],
-  /* 
+  /*
     beforeSuite: function (suite) {
         global.allure = allure;
         allure.addFeature(suite.name);
@@ -159,13 +159,13 @@ exports.config = {
   // If you are using Cucumber you need to specify the location of your step definitions.
   cucumberOpts: {
     // <string[]> (file/dir) require files before executing features
-    require: ["./test/step-definitions/*.ts"],
+    require: ['./test/step-definitions/*.ts'],
     // <boolean> show full backtrace for errors
     backtrace: false,
     // <string[]> ("extension:module") require files with the given EXTENSION after requiring MODULE (repeatable)
     requireModule: [
       () => {
-        require("ts-node").register({ files: true });
+        require('ts-node').register({ files: true });
       },
     ],
     // <boolean> invoke formatters without executing steps
@@ -173,7 +173,7 @@ exports.config = {
     // <boolean> abort the run on first failure
     failFast: false,
     // <string[]> (type[:path]) specify the output format, optionally supply PATH to redirect formatter output (repeatable)
-    format: ["pretty"],
+    format: ['pretty'],
     // <boolean> hide step definition snippets for pending steps
     snippets: true,
     // <boolean> hide source uris
@@ -183,7 +183,7 @@ exports.config = {
     // <boolean> fail if there are any undefined or pending steps
     strict: false,
     // <string> (expression) only execute the features or scenarios with tags matching the expression
-    tagExpression: "",
+    tagExpression: '',
     // <number> timeout for step definitions
     timeout: cucumberStepTimeout,
     // <boolean> Enable this config to treat undefined definitions as warnings.
@@ -206,18 +206,18 @@ exports.config = {
   // onPrepare: function (config, capabilities) {
   // },
   /**
-   * Gets executed before a worker process is spawned and can be used to initialise specific service
+   * Gets executed before a worker process is spawned and can be used to initialize specific service
    * for that worker as well as modify runtime environments in an async fashion.
    * @param  {String} cid      capability id (e.g 0-0)
    * @param  {[type]} caps     object containing capabilities for session that will be spawn in the worker
    * @param  {[type]} specs    specs to be run in the worker process
-   * @param  {[type]} args     object that will be merged with the main configuration once worker is initialised
+   * @param  {[type]} args     object that will be merged with the main configuration once worker is initialized
    * @param  {[type]} execArgv list of string arguments passed to the worker process
    */
   // onWorkerStart: function (cid, caps, specs, args, execArgv) {
   // },
   /**
-   * Gets executed just before initialising the webdriver session and test framework. It allows you
+   * Gets executed just before initializing the webdriver session and test framework. It allows you
    * to manipulate configurations depending on the capability or spec.
    * @param {Object} config wdio configuration object
    * @param {Array.<Object>} capabilities list of capabilities details
