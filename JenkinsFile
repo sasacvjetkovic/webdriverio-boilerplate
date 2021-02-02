@@ -1,6 +1,11 @@
 pipeline {
     agent any
     stages {
+        stage('Where is npm') {
+            steps {
+                sh 'which npm'
+            }
+        }
         stage('Install yarn') {
             steps {
                 sh 'npm install -g yarn'
