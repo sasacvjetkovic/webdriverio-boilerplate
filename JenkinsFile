@@ -1,5 +1,7 @@
 pipeline {
-    agent { label 'ssh-slave' }
+    agent {
+        docker { image 'node:14-alpine' }
+    }
     stages {
         stage('Node version') {
             steps {
