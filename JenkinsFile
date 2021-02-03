@@ -1,13 +1,5 @@
 pipeline {
-    agent {
-        docker { 
-            args '-u root:root'
-            image 'node:8'
-        } 
-    }
-    environment {
-        HOME = '.'
-    }
+    agent { label 'ssh-slave' }
     stages {
         stage('Node version') {
             steps {
