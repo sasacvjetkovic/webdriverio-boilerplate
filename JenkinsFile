@@ -1,14 +1,17 @@
 pipeline {
-    agent any
-    node {
+    agent {
+        docker { 
+            args '-u root:root'
+            image 'node:8'
+        } 
+    }
+    environment {
+        HOME = '.'
+    }
+    stages {
         stage('Node version') {
             steps {
                 sh 'node --version'
-            }
-        }
-        stage('Install yarn') {
-            steps {
-                sh 'npm install -g yarn'
             }
         }
         stage('Build') {
