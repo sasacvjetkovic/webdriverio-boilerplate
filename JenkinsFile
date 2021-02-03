@@ -17,7 +17,7 @@ pipeline {
                 sh 'sudo apt-get install -y nodejs'
                 sh 'apt-get install npm'
                 sh 'npm -v'
-                sh 'yarn install'
+                sh 'npm install'
                 sh 'ls'
             }
         }
