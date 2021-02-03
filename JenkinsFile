@@ -11,7 +11,7 @@ pipeline {
                 sh 'apt-get update'
                 sh 'apt-get -y upgrade'
                 sh 'apt-get dist-upgrade'
-                sh 'apt-get install build-essential'
+                sh 'apt-get -y install build-essential'
                 sh 'apt-get install npm'
                 sh 'apt-get install nodejs'
                 sh 'npm install --global yarn'
