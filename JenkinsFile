@@ -12,7 +12,10 @@ pipeline {
                 sh 'apt-get -y upgrade'
                 sh 'apt-get dist-upgrade'
                 sh 'apt-get -y install build-essential'
-                sh 'apt install npm'
+                sh 'apt-get install sudo'
+                sh 'curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash -'
+                sh 'sudo apt-get install -y nodejs'
+                sh 'apt-get install npm'
                 sh 'npm -v'
                 sh 'ls'
             }
