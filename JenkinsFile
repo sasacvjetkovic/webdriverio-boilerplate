@@ -8,7 +8,9 @@ pipeline {
         }
         stage('Stage 2') {
             steps {
+                sh 'apt-get update && apt-get upgrade'
                 sh 'apt-get install npm'
+                sh 'apt-get install nodejs'
                 sh 'npm install --global yarn'
                 sh 'yarn install'
             }
