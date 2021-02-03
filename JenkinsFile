@@ -6,8 +6,10 @@ pipeline {
                 echo 'Hello world!'
             }
         }
-    }
-    nodejs('nodejs') {
-        npm install
+        stage('Stage 2') {
+            steps {
+                sh 'yarn install'
+            }
+        }
     }
 }
