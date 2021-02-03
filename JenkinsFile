@@ -12,9 +12,9 @@ pipeline {
                 sh 'apt-get -y upgrade'
                 sh 'apt-get dist-upgrade'
                 sh 'apt-get -y install build-essential'
-                sh 'apt-get install -g nodejs -y'
-                sh 'apt-get install -g yarn -y'
-                sh 'yarn install'
+                sh 'apt install npm'
+                sh 'npm -v'
+                sh 'ls'
             }
         }
     }
