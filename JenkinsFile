@@ -13,7 +13,7 @@ pipeline {
                 sh 'apt-get dist-upgrade'
                 sh 'apt-get -y install build-essential'
                 sh 'apt-get install -y nodejs'
-                sh 'node --version'
+                sh 'apt-get install -y yarn'
                 sh 'yarn install'
             }
         }
