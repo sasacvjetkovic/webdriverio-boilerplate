@@ -8,7 +8,7 @@ pipeline {
         }
         stage('Stage 2') {
             steps {
-                sh 'sudo apt-get install npm'
+                sh 'apt-get install npm'
                 sh 'npm install --global yarn'
                 sh 'yarn install'
             }
