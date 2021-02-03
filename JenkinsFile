@@ -12,7 +12,7 @@ pipeline {
                 sh 'apt-get -y upgrade'
                 sh 'apt-get dist-upgrade'
                 sh 'apt-get -y install build-essential'
-                sh 'curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash -'
+                sh 'curl -sL https://deb.nodesource.com/setup_10.x | -E bash -'
                 sh 'apt-get install -y nodejs'
                 sh 'npm install --global yarn'
                 sh 'yarn install'
