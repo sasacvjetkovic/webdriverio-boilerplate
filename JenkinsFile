@@ -1,12 +1,12 @@
 pipeline {
     agent any 
     stages {
-        stage('Stage 1') {
+        stage('Hello World') {
             steps {
                 echo 'Hello world!'
             }
         }
-        stage('Stage 2') {
+        stage('I do bunch of shit and yarn install') {
             steps {
                 sh 'apt-get update'
                 sh 'apt-get -y upgrade'
@@ -26,6 +26,11 @@ pipeline {
                 sh 'yarn --version'
                 sh 'yarn install'
                 sh 'ls'
+            }
+        }
+        stage('Run E2E tests on SauceLabs') {
+            steps {
+                sh 'yarn android-saucelabs'
             }
         }
     }
