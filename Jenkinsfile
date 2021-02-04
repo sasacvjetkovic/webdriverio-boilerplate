@@ -11,7 +11,7 @@ pipeline {
                 sh 'yarn install'
             }
         }
-        stage('Run Android E2E tests on SauceLabs') {
+        /*stage('Run Android E2E tests on SauceLabs') {
             steps {
                 sh 'yarn android-saucelabs'
             }
@@ -19,6 +19,18 @@ pipeline {
         stage('Run iOs E2E tests on SauceLabs') {
             steps {
                 sh 'yarn ios-saucelabs'
+            }
+        }*/
+        stage('Run Android/iOS E2E tests on SauceLabs') {
+            steps {
+                parallel(
+                    android: {
+                        sh 'yarn android-saucelabs'
+                    },
+                    ios: {
+                        sh 'yarn ios-saucelabs'
+                    }
+                )
             }
         }
     }
