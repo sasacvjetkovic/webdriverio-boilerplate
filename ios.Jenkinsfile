@@ -6,7 +6,7 @@ pipeline {
                 echo 'Hello world!'
             }
         }
-        stage('I do bunch of shit and yarn install') {
+        stage('Yarn install') {
             steps {
                 /*sh 'apt-get update'
                 sh 'apt-get -y upgrade'
