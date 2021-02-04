@@ -168,6 +168,7 @@ exports.config = {
         require('ts-node').register({ files: true });
       },
     ],
+    // requireModule: ['@babel/register'],
     // <boolean> invoke formatters without executing steps
     dryRun: false,
     // <boolean> abort the run on first failure

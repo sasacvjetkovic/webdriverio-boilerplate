@@ -27,7 +27,6 @@ exports.config = {
     services: ['sauce'],
     user: process.env.SAUCE_USER,
     key: process.env.SAUCE_KEY,
-    region: process.env.SAUCE_REGION,
     //config.sauceConnect = true;
 
     beforeScenario: (
@@ -47,14 +46,9 @@ exports.config = {
         'Content-type': 'application/json',
       };
 
-      let sauce_url = 'saucelabs.com';
-
-      if (process.env.SAUCE_REGION === 'eu') {
-        sauce_url = 'eu-central-1.saucelabs.com';
-      }
       axios({
         method: 'put',
-        url: `https://${sauce_url}/rest/v1/${process.env.SAUCE_USER}/jobs/${sauceJobId}`,
+        url: `https://saucelabs.com/rest/v1/${process.env.SAUCE_USER}/jobs/${sauceJobId}`,
         data: dataObject,
         headers: headers,
         auth: {
