@@ -16,5 +16,10 @@ pipeline {
                 sh 'yarn android-saucelabs'
             }
         }
+        stage('Run iOs E2E tests on SauceLabs') {
+            steps {
+                sh 'yarn ios-saucelabs'
+            }
+        }
     }
 }
