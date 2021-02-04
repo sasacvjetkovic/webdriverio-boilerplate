@@ -32,17 +32,17 @@ pipeline {
                     }
                 )
             }
-        }
-        post {
-            always {
-                script {
-                     allure([
-                        includeProperties: false,
-                        jdk: '',
-                        properties: [],
-                        reportBuildPolicy: 'ALWAYS',
-                        results: [[path: 'test/report/allure-results']]
-                    ])
+            post {
+                always {
+                    script {
+                        allure([
+                            includeProperties: false,
+                            jdk: '',
+                            properties: [],
+                            reportBuildPolicy: 'ALWAYS',
+                            results: [[path: 'test/report/allure-results']]
+                        ])
+                    }
                 }
             }
         }
