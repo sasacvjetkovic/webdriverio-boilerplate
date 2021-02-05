@@ -3,10 +3,12 @@ pipeline {
     stages {
         stage('Hello World') {
             steps {
-                echo 'I am echo from 1st stage'
-            }
-            steps {
-                echo 'I am another step'
+                step {
+                    echo 'I am echo from 1st stage'
+                }
+                step {
+                    echo 'Hello there'
+                }
             }
         }
         stage('Yarn install') {
