@@ -1,9 +1,14 @@
 pipeline {
     agent any 
     stages {
-        stage('Hello World') {
+        stage('1st stage') {
+            stage('Stage inside 1st stage') {
+                steps {
+                    echo 'I am echo inside nested stage'
+                }
+            }
             steps {
-                echo 'Hello world!'
+                echo 'I am echo from 1st stage'
             }
         }
         stage('Yarn install') {
