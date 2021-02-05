@@ -2,11 +2,6 @@ pipeline {
     agent any 
     stages {
         stage('Hello World') {
-            stage('Stage inside 1st stage') {
-                steps {
-                    echo 'I am echo inside nested stage'
-                }
-            }
             steps {
                 echo 'I am echo from 1st stage'
             }
