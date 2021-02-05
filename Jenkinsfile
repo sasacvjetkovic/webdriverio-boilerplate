@@ -5,6 +5,9 @@ pipeline {
             steps {
                 echo 'I am echo from 1st stage'
             }
+            steps {
+                echo 'I am another step'
+            }
         }
         stage('Yarn install') {
             steps {
