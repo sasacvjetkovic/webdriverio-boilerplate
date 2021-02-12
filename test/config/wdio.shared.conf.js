@@ -163,11 +163,12 @@ exports.config = {
     // <boolean> show full backtrace for errors
     backtrace: false,
     // <string[]> ("extension:module") require files with the given EXTENSION after requiring MODULE (repeatable)
-    requireModule: [
-      () => {
-        require('ts-node').register({ files: true });
-      },
-    ],
+    // requireModule: [
+    //   () => {
+    //     require('ts-node').register({ files: true });
+    //   },
+    // ],
+    requireModule: ['@babel/register'],
     // requireModule: ['@babel/register'],
     // <boolean> invoke formatters without executing steps
     dryRun: false,
