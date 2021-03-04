@@ -4,6 +4,7 @@ Feature: Login screen
   Would like to navigate the menu and go to login screen
   Because login in the app starts from entering credentials there
 
+  @chek2
   Scenario: Login page is shown
     Given user Bob is on login page
     When user Bob navigate to login screen from the menu
@@ -16,6 +17,7 @@ Feature: Login screen
     Then alert for successful login is shown
     And I will use shared data
 
+  @chek1
   Scenario: Login with invalid credentials
     Given user Bob is on login page
     When he logs in with invalid credentials

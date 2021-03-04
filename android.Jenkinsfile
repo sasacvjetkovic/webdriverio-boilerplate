@@ -30,7 +30,7 @@ pipeline {
         }
         stage('Run E2E tests on SauceLabs') {
             steps {
-                sh 'yarn android-saucelabs'
+                sh 'SCRIPT=android-saucelabs TAG=${TAG} yarn e2e-custom'
             }
         }
     }
