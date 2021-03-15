@@ -8,7 +8,7 @@ pipeline {
         }
         stage('Yarn install') {
             steps {
-                /*sh 'apt-get update'
+                sh 'apt-get update'
                 sh 'apt-get -y upgrade'
                 sh 'apt-get dist-upgrade'
                 sh 'apt-get -y install build-essential'
@@ -25,12 +25,24 @@ pipeline {
                 sh 'sudo apt-get install yarn -y'
                 sh 'yarn --version'*/
                 sh 'yarn install'
-                /*sh 'ls'*/
             }
         }
         stage('Run iOS E2E tests on SauceLabs') {
             steps {
                 sh 'yarn ios-saucelabs'
+            }
+            post {
+                always {
+                    script {
+                        allure([
+                            includeProperties: false,
+                            jdk: '',
+                            properties: [],
+                            reportBuildPolicy: 'ALWAYS',
+                            results: [[path: 'test/report/allure-results']]
+                        ])
+                    }
+                }
             }
         }
     }
