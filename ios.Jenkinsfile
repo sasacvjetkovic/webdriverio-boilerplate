@@ -32,6 +32,19 @@ pipeline {
             steps {
                 sh 'yarn ios-saucelabs'
             }
+            post {
+                always {
+                    script {
+                        allure([
+                            includeProperties: false,
+                            jdk: '',
+                            properties: [],
+                            reportBuildPolicy: 'ALWAYS',
+                            results: [[path: 'test/report/allure-results']]
+                        ])
+                    }
+                }
+            }
         }
     }
 }
