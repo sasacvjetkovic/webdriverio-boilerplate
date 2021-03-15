@@ -8,7 +8,7 @@ pipeline {
         }
         stage('Yarn install') {
             steps {
-                /*sh 'apt-get update'
+                sh 'apt-get update'
                 sh 'apt-get -y upgrade'
                 sh 'apt-get dist-upgrade'
                 sh 'apt-get -y install build-essential'
@@ -23,7 +23,7 @@ pipeline {
                 sh 'echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list'
                 sh 'sudo apt-get update'
                 sh 'sudo apt-get install yarn -y'
-                sh 'yarn --version'*/
+                sh 'yarn --version'
                 sh 'yarn install'
                 /*sh 'ls'*/
             }
