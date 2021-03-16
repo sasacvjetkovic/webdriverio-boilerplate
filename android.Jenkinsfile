@@ -31,15 +31,15 @@ pipeline {
         stage('Run E2E tests on SauceLabs') {
             steps {
                 sh 'SCRIPT=android-saucelabs TAG=${TAG} yarn e2e-custom'
-            }
-            script {
-                allure([
-                    includeProperties: false,
-                    jdk: '',
-                    properties: [],
-                    reportBuildPolicy: 'ALWAYS',
-                    results: [[path: 'test/report/allure-results']]
-            ])
+                script {
+                    allure([
+                        includeProperties: false,
+                        jdk: '',
+                        properties: [],
+                        reportBuildPolicy: 'ALWAYS',
+                        results: [[path: 'test/report/allure-results']]
+                    ])
+                }
             }
             // post {
             //     always {
