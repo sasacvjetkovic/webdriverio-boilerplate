@@ -31,6 +31,7 @@ pipeline {
         stage('Run E2E tests on SauceLabs') {
             steps {
                 sh 'SCRIPT=android-saucelabs TAG=${TAG} yarn e2e-custom'
+                sh 'yarn allure-report'
                 script {
                     allure([
                         includeProperties: false,

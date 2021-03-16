@@ -9,7 +9,8 @@
     "ios-saucelabs": "wdio ./test/config/wdio.conf.ios.saucelabs.js",
     "e2e-custom": "yarn run $SCRIPT --cucumberOpts.tagExpression=\"$TAG\"",
     "e2e-custom2": "npm run $npm_config_script -- --cucumberOpts.tagExpression='$npm_config_tags'",
-    "allure-report": "allure generate ./test/report/allure-results --clean && allure open",
+    "allure-report": "allure generate ./test/report/allure-results",
+    "allure-report-old": "allure generate ./test/report/allure-results --clean && allure open",
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx"
   },
   "author": "Sasa Cvjetkovic",
